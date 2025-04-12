@@ -1,5 +1,5 @@
 import dayjs from "dayjs"
-import {openingHours} from "../../utils/opening.hours.js"
+import {openingHours} from "../../utils/opening-hours.js"
 import {hoursClick} from "./hours-click.js"
 
 const hours = document.getElementById("hours")
@@ -18,20 +18,20 @@ export function hoursLoad({date, dailyShedules}){
        //Adciona a hora na data e verifica se esta no passado
        const isHourPast = dayjs(date).add(scheduleHour, "hour").isBefore(dayjs())
 
-       const avaible = !unavailableHours.includes(hour) && !isHourPast
+       const available = !unavailableHours.includes(hour) && !isHourPast
 
        return {
         hour,
-        avaible,
+        available,
        }
     })
 
     //Renderiza as horas disponiveis
-    opening.forEach(({hour, avaible}) => {
+    opening.forEach(({hour, available}) => {
         const li = document.createElement("li")
 
         li.classList.add("hour")
-        li.classList.add(avaible ? "hour-available" : "hour-unavailable")
+        li.classList.add(available ? "hour-available" : "hour-unavailable")
 
         li.textContent = hour
 

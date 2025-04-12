@@ -1,6 +1,6 @@
 import { scheduleFetchByDay } from "../../services/schedule-fetch-by-day.js";
 import {hoursLoad} from "../form/hours-load.js"
-import { schedulesShow } from "../schedules/show.js";
+import { schedulesShow } from "./show.js";
 
 //Seleciona o input de data
 const selectedDate = document.getElementById("date");

@@ -6,8 +6,9 @@ const periods = document.querySelectorAll(".period")
 //Gera evento de click para cada lista (manha, tarde e noite)
 
 periods.forEach((period) => {
-    period.addEventListener("click", async(event) => {
+    period.addEventListener("click", async (event) => {
        if(event.target.classList.contains("cancel-icon")){
+        console.log("ID do agendamento clicado:", id);
         //Obtem a li pai do elemento clicado
         const item = event.target.closest("li")
 
@@ -21,7 +22,7 @@ periods.forEach((period) => {
                 "Deseja realmente cancelar esse agendamento?"
             )
 
-            if(confirm){
+            if(isConfirm){
                 //Faz a requisicao na API para cancelar
                 await scheduleCancel({id})
 

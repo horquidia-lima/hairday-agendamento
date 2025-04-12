@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
-import {sheduleNew} from "../../services/schedule-new.js"
+import {scheduleNew} from "../../services/schedule-new.js"
 import {schedulesDay} from "../schedules/load.js"
 
-const form = document.querySelector(".form");
+const form = document.querySelector("form");
 const clientName = document.getElementById("client");
 const selectedDate = document.getElementById("date");
 
@@ -38,9 +38,9 @@ form.onsubmit = async(event) => {
         const when = dayjs(selectedDate.value).add(hour, "hour")
 
         //Gera um id
-        const id = new Date().getDate()
+        const id = new Date().getTime()
 
-        await sheduleNew({
+        await scheduleNew({
             id,
             name,
             when,
